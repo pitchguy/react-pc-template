@@ -1,7 +1,7 @@
 {
-  "name": "init",
-  "version": "1.0.0",
-  "description": "this is demo about webpack4",
+  "name": "pitch",
+  "version": "1.0.1",
+  "description": "react width webpack4",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
@@ -14,7 +14,7 @@
     "react",
     "webpack"
   ],
-  "author": "kangaroo",
+  "author": "chenjie",
   "license": "ISC",
   "dependencies": {
     "bizcharts": "^3.2.2",
