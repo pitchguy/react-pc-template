@@ -14,7 +14,7 @@
     "react",
     "webpack"
   ],
-  "author": "chenjie",
+  "author": "chance",
   "license": "ISC",
   "dependencies": {
     "bizcharts": "^3.2.2",
