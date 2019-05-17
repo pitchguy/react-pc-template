@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "webpack-dev-server  --progress  --mode development",
+    "dev": "webpack-dev-server --progress --colors --config ./build/webpack.dev.js",
     "preview": "pushstate-server ./dist 1234",
-    "build": "rimraf dist && webpack --bail --progress --profile  --config ./webpack.prod",
+    "build": "rimraf dist && webpack --bail --progress --profile  --config ./build/webpack.prod",
     "test": "webpack --progress --mode  production"
   },
   "keywords": [

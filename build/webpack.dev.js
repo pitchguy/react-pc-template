@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
 module.exports = {
+  mode: "development",
   devtool: 'cheap-eval-source-map', //eval-source-map //此选项控制是否生成，以及如何生成 source map
   module: { //这些选项决定了如何处理项目中的不同类型的模块。
     rules: [{
@@ -35,7 +36,7 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
-      filename: "./index.html"
+      filename: "index.html"
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
@@ -43,14 +44,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css', '.json'], //自动解析确定的扩展。覆盖原有扩展
     alias: { //创建 import 或 require 的别名，来确保模块引入变得更简单
-      pages: path.resolve(__dirname, 'src/pages/'),
-      assets: path.resolve(__dirname, 'src/assets/'),
-      component: path.resolve(__dirname, 'src/components/'),
-      tpls: path.resolve(__dirname, 'src/tpls/')
+      pages: path.resolve(__dirname, '../src/pages/'),
+      assets: path.resolve(__dirname, '../src/assets/'),
+      component: path.resolve(__dirname, '../src/components/'),
+      tpls: path.resolve(__dirname, '../src/tpls/')
     },
     modules: [
-      path.resolve(__dirname, "src"), //告诉 webpack 解析模块时应该搜索的目录。
-      path.resolve(__dirname, 'node_modules')
+      path.resolve(__dirname, "../src"), //告诉 webpack 解析模块时应该搜索的目录。
+      path.resolve(__dirname, '../node_modules')
     ]
   },
   devServer: {
