@@ -1,0 +1,58 @@
+.rankList {
+    $selectColor: #1FB87D;
+    background-color: #fff;
+    border-radius: 2px;
+    .ant-list-header {
+        padding: 13px 0 13px 23px;
+        >div {
+            font-size: .111111rem * 2.5;
+            color: rgba(0, 0, 0, 0.85);
+        }
+    }
+    .ant-spin-container {
+        padding: .034722rem*2.5 .326389rem*2;
+        overflow-y: auto;
+        max-height: 269px;
+    }
+    .listItem {
+        height: 28px;
+        line-height: 28px;
+        margin: 5px 0;
+        max-height: 41px;
+        .itemNum {
+            display: inline-block;
+            font-family: HelveticaNeue;
+            font-size: .097222rem * 2.5;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        .item_icon {
+            $circle: 20px;
+            width: $circle;
+            line-height: $circle;
+            height: $circle;
+            text-align: center;
+            font-family: HelveticaNeue-Medium;
+            font-size: 12px;
+            margin-right: .166667rem*1;
+            color: rgba(0, 0, 0, 0.65);
+            border-radius: 50%;
+            display: inline-block;
+            background: #F0F2F5;
+            &.green {
+                color: #fff;
+                background: $selectColor
+            }
+            &.blue {
+                color: #fff;
+                background: #49B1FF;
+            }
+        }
+        .itemName {
+            font-size: .097222rem *2.5;
+            width: 65%;
+            white-space: nowrap;
+            display: inline-block;
+            color: rgba(0, 0, 0, 0.65);
+        }
+    }
+}

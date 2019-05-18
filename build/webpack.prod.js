@@ -58,7 +58,7 @@ module.exports = {
             filename: "index.html"
         }),
         new webpack.DefinePlugin({ //允许创建一个在编译时可以配置的全局常量。
-            test: JSON.stringify("test"), //注：给定的值必须包含字符串本身内的实际引号 '"test"'
+            __PRODUCTION: JSON.stringify("test"), //注：给定的值必须包含字符串本身内的实际引号 '"test"'
         }),
         new webpack.ProvidePlugin({ //自动加载模块，而不必到处 import 或 require 
             _: 'lodash',
@@ -112,7 +112,9 @@ module.exports = {
             pages: path.resolve(__dirname, '../src/pages/'),
             assets: path.resolve(__dirname, '../src/assets/'),
             component: path.resolve(__dirname, '../src/components/'),
-            tpls: path.resolve(__dirname, '../src/tpls/')
+            tpls: path.resolve(__dirname, '../src/tpls/'),
+            utils: path.resolve(__dirname, '../src/utils/'),
+            constants: path.resolve(__dirname, '../src/constants/')
         },
         modules: [
             path.resolve(__dirname, "../src"), //告诉 webpack 解析模块时应该搜索的目录。

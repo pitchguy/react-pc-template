@@ -1,0 +1,87 @@
+.top-nav {
+    $height: 50px;
+    position: fixed;
+    background: #161D39;
+    height: $height;
+    padding: 0 20px;
+    width: 100%;
+    z-index: 100;
+    a {
+        color: #fff;
+    }
+    .logo {
+        float: left;
+        height: $height;
+        line-height: $height;
+        font-size: 14px;
+        color: #FFFFFF;
+        letter-spacing: 0.78px;
+        .logoImg {
+            font-family: PingFangSC-Semibold;
+            font-size: 16px;
+            color: #10AD71;
+            letter-spacing: 0;
+            margin-right: 4px;
+        }
+        img {
+            width: 150px;
+            height: $height;
+            float: left;
+            margin-left: 10px;
+            padding: 10px 10px;
+        }
+    }
+    .top-nav-left {
+        float: left;
+        color: #fff;
+        height: $height;
+        margin-left: .166667rem*2.5;
+        .ant-menu-horizontal {
+            background: #161D39;
+            border-color: #161D39;
+            .ant-menu-item {
+                $selectColor: #10AD71;
+                padding: 0 .138889rem*2;
+                padding-top: 2px;
+                a {
+                    color: #fff;
+                }
+                &:hover {
+                    border-color: $selectColor;
+                    background-color: $selectColor;
+                }
+                &.ant-menu-item-selected {
+                    border-color: $selectColor;
+                    background-color: $selectColor;
+                }
+            }
+        }
+    }
+    .top-nav-right {
+        float: right;
+        display: flex;
+        display: -webkit-flex;
+        line-height: $height - 4px;
+        height: $height - 4px;
+        font-size: 14px;
+        margin-right: 28px;
+        .ant-dropdown {
+            width: 150px;
+            a {
+                font-size: 14px;
+                color: rgba($color: #000000, $alpha: 1.0);
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    }
+    .goods-ct{
+        .ant-select-selection{
+            background: #161D39;
+            color: #FFFFFF;
+        }
+        .ant-select-arrow{
+            color: #FFFFFF;
+        }
+    }
+}

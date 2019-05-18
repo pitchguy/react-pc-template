@@ -1,0 +1,16 @@
+.g-container {
+    height: 100%;
+    .g-body {
+        padding-top:50px;
+        .g-main {
+            display: flex;
+            .g-content {
+                flex: 1;
+                background-color: #F0F5F3;
+            }
+            .g-footer {
+                background-color: #F0F5F3;
+            }
+        }
+    }
+}

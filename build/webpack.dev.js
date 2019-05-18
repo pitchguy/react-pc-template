@@ -39,7 +39,10 @@ module.exports = {
       filename: "index.html"
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      __PRODUCTION: JSON.stringify(true)
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css', '.json'], //自动解析确定的扩展。覆盖原有扩展
@@ -47,7 +50,9 @@ module.exports = {
       pages: path.resolve(__dirname, '../src/pages/'),
       assets: path.resolve(__dirname, '../src/assets/'),
       component: path.resolve(__dirname, '../src/components/'),
-      tpls: path.resolve(__dirname, '../src/tpls/')
+      tpls: path.resolve(__dirname, '../src/tpls/'),
+      utils: path.resolve(__dirname, '../src/utils/'),
+      constants: path.resolve(__dirname, '../src/constants/')
     },
     modules: [
       path.resolve(__dirname, "../src"), //告诉 webpack 解析模块时应该搜索的目录。
