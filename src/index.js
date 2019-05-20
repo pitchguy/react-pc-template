@@ -25,7 +25,7 @@ const render = Component =>
   ReactDOM.render(
     <Provider store={store}>
         <LocaleProvider locale={zhCN}>
-            <Component />,
+            <Component />
         </LocaleProvider>
     </Provider>,
     document.getElementById('root')
