@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "message": "执行成功~~",
+  "data":{
+    "topNav":[
+      {
+        "id": 1,
+        "parentId": 1,
+        "permissionName": "经营洞察",
+        "permissionIcon": "",
+        "permissionUrl": "/operatingSight",
+        "children": []
+      },
+      {
+        "id": 2,
+        "parentId": 1,
+        "permissionName": "会员洞察",
+        "permissionIcon": "",
+        "permissionUrl": "/vipSight",
+        "children": []
+      },
+      {
+        "id": 3,
+        "parentId": 1,
+        "permissionName": "客流洞察",
+        "permissionIcon": "",
+        "permissionUrl": "/passengerSight",
+        "children": []
+      },
+      {
+        "id": 5,
+        "parentId": 1,
+        "permissionName": "运营洞察",
+        "permissionIcon": "",
+        "permissionUrl": "/operationSight",
+        "children": []
+      },
+      {
+        "id": 4,
+        "parentId": 1,
+        "permissionName": "会员中心",
+        "permissionIcon": "",
+        "permissionUrl": "/vipCenter",
+        "children": []
+      }
+    ],
+    "sideNav":[]
+  }
+}
