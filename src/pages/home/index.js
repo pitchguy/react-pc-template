@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss'
-import Header from 'component/header'
-import { Chart, Axis, Geom, Tooltip } from 'bizcharts'
+// import { Chart, Axis, Geom, Tooltip } from 'bizcharts'
+
 export default class Home extends React.Component{
     render(){
         const data = [
@@ -21,14 +21,14 @@ export default class Home extends React.Component{
           'year': {range: [ 0 , 1] }
         };
         return <div className="test">
-                 <Header/>
-             <Chart height={400} data={data} scale={cols} forceFit>
+          123
+             {/* <Chart height={400} data={data} scale={cols} forceFit>
             <Axis name="year" />
             <Axis name="value" />
             <Tooltip crosshairs={{type : "y"}}/>
             <Geom type="line" position="year*value" size={2} />
             <Geom type='point' position="year*value" size={4} shape={'circle'} style={{ stroke: '#fff', lineWidth: 1}} />
-          </Chart>
+          </Chart> */}
         </div>
     }
 }

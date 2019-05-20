@@ -4,6 +4,7 @@ const path = require('path');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const theme = require('../antd-theme.js');
 module.exports = {
     mode: "production", //编译模式3
     //target
@@ -32,10 +33,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.(less|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    "css-loader"
+                    "css-loader",
+                    "less-loader?{modifyVars:" + JSON.stringify(theme) + "}"
                 ],
             },
             {
@@ -45,6 +47,14 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test: /\.(jpg|png|gif|jpeg)$/,
+                use: 'file-loader?name=[name].[ext]'
+            },
+            {
+                test: /\.(eot|woff|svg|ttf|woff2|gif|appcache|webp)(\?|$)/,
+                use: 'file-loader?name=[name].[ext]'
             }
         ]
     },
@@ -109,12 +119,12 @@ module.exports = {
     resolve: { //配置模块如何解析
         extensions: ['.js', '.jsx', '.scss', '.css', '.json'], //自动解析确定的扩展。覆盖原有扩展
         alias: { //创建 import 或 require 的别名，来确保模块引入变得更简单
-            pages: path.resolve(__dirname, '../src/pages/'),
-            assets: path.resolve(__dirname, '../src/assets/'),
-            component: path.resolve(__dirname, '../src/components/'),
-            tpls: path.resolve(__dirname, '../src/tpls/'),
-            utils: path.resolve(__dirname, '../src/utils/'),
-            constants: path.resolve(__dirname, '../src/constants/')
+            pages: path.resolve(__dirname, '../src/pages'),
+            assets: path.resolve(__dirname, '../src/assets'),
+            component: path.resolve(__dirname, '../src/components'),
+            tpls: path.resolve(__dirname, '../src/tpls'),
+            utils: path.resolve(__dirname, '../src/utils'),
+            constants: path.resolve(__dirname, '../src/constants')
         },
         modules: [
             path.resolve(__dirname, "../src"), //告诉 webpack 解析模块时应该搜索的目录。

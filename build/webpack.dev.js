@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
+const theme = require('../antd-theme.js');
 module.exports = {
   mode: "development",
   devtool: 'cheap-eval-source-map', //eval-source-map //此选项控制是否生成，以及如何生成 source map
@@ -14,10 +15,11 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.(less|css)$/,
         use: [
           "style-loader",
-          "css-loader"
+          "css-loader",
+          "less-loader?{modifyVars:"+JSON.stringify(theme)+"}"
         ],
       },
       {
@@ -27,6 +29,14 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(jpg|png|gif|jpeg)$/,
+        use: 'file-loader?name=[name].[ext]'
+      },
+      {
+        test: /\.(eot|woff|svg|ttf|woff2|gif|appcache|webp)(\?|$)/,
+        use: 'file-loader?name=[name].[ext]'
       }
     ]
   },
@@ -47,12 +57,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css', '.json'], //自动解析确定的扩展。覆盖原有扩展
     alias: { //创建 import 或 require 的别名，来确保模块引入变得更简单
-      pages: path.resolve(__dirname, '../src/pages/'),
-      assets: path.resolve(__dirname, '../src/assets/'),
-      component: path.resolve(__dirname, '../src/components/'),
-      tpls: path.resolve(__dirname, '../src/tpls/'),
-      utils: path.resolve(__dirname, '../src/utils/'),
-      constants: path.resolve(__dirname, '../src/constants/')
+      pages: path.resolve(__dirname, '../src/pages'),
+      assets: path.resolve(__dirname, '../src/assets'),
+      component: path.resolve(__dirname, '../src/components'),
+      tpls: path.resolve(__dirname, '../src/tpls'),
+      utils: path.resolve(__dirname, '../src/utils'),
+      constants: path.resolve(__dirname, '../src/constants')
     },
     modules: [
       path.resolve(__dirname, "../src"), //告诉 webpack 解析模块时应该搜索的目录。
