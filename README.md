@@ -26,7 +26,7 @@ npm install 或者cnpm install 或者yarn(推荐)
 
 2、运行脚手架。
  ```
- npm start
+ npm start 或者 yarn start
 
  ```
 
@@ -39,13 +39,7 @@ http://127.0.0.1:8080
 4、打包发布: 默认打包后的文件统一放到dist文件夹下  
 
 ```
-npm run build
-
-```
-5、code编写规则及行为规范请参考
-
-```
-https://github.com/cindyrise/doc.git
+npm run build 或者 yarn build
 
 ```
 ===========================================
@@ -56,15 +50,17 @@ https://github.com/cindyrise/doc.git
 ```text
 ├── build //webpack各种环境打包配置
 ├── dist //打包后文件存放文件夹
+├── mock //测试数据，模拟api接口
 ├── src //项目的主要目录
 │     │     │     ├── assets //此应用对应的静态资源
 │     │     │     │     ├── img //全局静态图片目录
 │     │     │     │     ├── style //全局样式地址
-│     │     │     │     ├── font //全局字体目录
-│     │     │     │     ├── lib //全局js类库地址
+│     │     │     │     ├── fonts //全局字体目录
+│     │     │     │     ├── libs //全局js类库地址
 │     │     │     ├── pages //页面
 │     │     │     ├── tpls //模板页面
 │     │     │     ├── components //全局公用组件
+│     │     │     ├── constants //本地json文件
 │     │     │     ├── utils //提供一些小工具
 │     │     │     ├── index.js //应用的入口
 │     │     │     └── router //路由
