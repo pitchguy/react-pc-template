@@ -14,7 +14,7 @@ export default class MainTpl extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-		this.audio = new Audio(tips);
+		// this.audio = new Audio(tips);
 	}
 
 	componentDidMount() {

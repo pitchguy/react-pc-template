@@ -31,4 +31,4 @@ export const getShopId = (params) => async (dispatch, getState) => {
     } catch (error) {
         console.log('error: ', error)
     }
-  }
+}

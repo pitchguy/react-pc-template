@@ -94,8 +94,7 @@ export default class TopNav extends React.Component {
 		)
 		return <Header className="top-nav">
 			<div className="logo">
-				{/* <span className="logoImg">LOGO</span> */}
-				<span>浙江烟草智慧门店</span>
+				<span>基础项目名称</span>
 			</div>
 			<div className="top-nav-left">
 				{topMenu}

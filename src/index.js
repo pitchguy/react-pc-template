@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { LocaleProvider } from 'antd';
-import zhCN from 'antd/lib/locale-provider/zh_CN';
+import { ConfigProvider } from 'antd';
+// import zhCN from 'antd/lib/locale-provider/zh_CN';
+import zhCN from "antd/es/locale/zh_CN";
 import createHistory from "history/createBrowserHistory";
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
@@ -24,9 +25,9 @@ const store = createStore(
 const render = Component =>
   ReactDOM.render(
     <Provider store={store}>
-        <LocaleProvider locale={zhCN}>
+        <ConfigProvider locale={zhCN}>
             <Component />
-        </LocaleProvider>
+        </ConfigProvider>
     </Provider>,
     document.getElementById('root')
   )
