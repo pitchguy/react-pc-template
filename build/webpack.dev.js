@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
+const serverConfig = require("./webpack.server");
 const theme = require('../antd-theme.js');
 module.exports = {
   mode: "development",
@@ -42,7 +43,7 @@ module.exports = {
   },
   performance: { //打包性能配置
     hints: false, // 关闭性能提示
-},
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
@@ -73,11 +74,12 @@ module.exports = {
     disableHostCheck: true, //是否绕过主机检查
     contentBase: require('path').join(__dirname, "dist"),
     compress: true, //服务都启用gzip 压缩：
-    hot: true,
-    inline:true,//自动涮下模式，
+    hot: true,  //热更新
+    open: true, //自动打开浏览器
+    inline:true,  //自动涮下模式，
     historyApiFallback: true,//h5 history api时任意的 404 响应都可能需要被替代为 index.html
-    port: 8080,
-    host: "127.0.0.1",
+    port: serverConfig.port,
+    host: serverConfig.host,
     proxy: [{
         context: ['/auth', '/api'],
         target: 'http://localhost:3000',
