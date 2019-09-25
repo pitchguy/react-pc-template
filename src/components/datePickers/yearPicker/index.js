@@ -16,7 +16,7 @@ class Index extends Component {
         }
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
     }
     //日期触发
     handleselect() {

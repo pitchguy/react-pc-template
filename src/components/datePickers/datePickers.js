@@ -32,12 +32,12 @@ class DatePickers extends Component {
 			endValue: moment().subtract(1, 'days'),
 		};
 	}
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 	}
 	componentDidMount() {
 
 	}
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 	}
 	shouldComponentUpdate(nextProps, nextState) {
 		return this.props != nextProps || this.state != nextState;

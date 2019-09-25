@@ -11,7 +11,7 @@ export default class BaseTpl extends Component {
 
     componentDidMount() {
     }
-    componentWillReceiveProps(nextProps) { }
+    UNSAFE_componentWillReceiveProps(nextProps) { }
 
 
     render() {

@@ -29,7 +29,7 @@ export default class RankList extends Component {
 	}
 	componentDidMount() {
 	}
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 
 	}
 	shouldComponentUpdate(nextProps, nextState) {
