@@ -1,7 +1,8 @@
 import React from 'react';
 import routerConf from './routerConf';
 import {  Router, Switch, Route,Redirect } from 'react-router-dom';
-import createHistory from "history/createBrowserHistory";
+// import createHistory from "history/createBrowserHistory";
+const createHistory = require("history").createBrowserHistory;
 const history = createHistory();
 
 function renderRouteConf(container, router, contextPath) {

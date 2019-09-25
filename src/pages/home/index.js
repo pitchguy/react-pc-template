@@ -23,7 +23,7 @@ export default class Home extends React.Component{
     renderItem = (item,index) => {
       const indexs = index;
       return (
-        <p>{item}</p>
+        <p key={index}>{item}</p>
       )
     }
 

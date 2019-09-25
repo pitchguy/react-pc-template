@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 // import zhCN from 'antd/lib/locale-provider/zh_CN';
 import zhCN from "antd/es/locale/zh_CN";
-import createHistory from "history/createBrowserHistory";
+// import createHistory from "history/createBrowserHistory";
+const createHistory = require("history").createBrowserHistory;
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
