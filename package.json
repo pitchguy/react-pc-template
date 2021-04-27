@@ -20,7 +20,7 @@
     "antd": "^4.15.3",
     "bizcharts": "^3.2.2",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.19",
     "mirror-creator": "^1.1.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
