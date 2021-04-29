@@ -1,8 +1,7 @@
-import 'whatwg-fetch'
 import { reqHeader, authBeforeRes, authAfterRes } from './interceptor';
 import ProgressBar from '../components/progressBar';
 import { history } from '../index';
-import { notification } from 'antd'
+import { notification } from 'antd';
 class Http {
   websocketIndex = 0;
   websocketConnect(header) {
@@ -11,65 +10,69 @@ class Http {
       //自定义头部
       const headers = header;
       let stompClient = Stomp.over(socket);
-      stompClient.connect(headers, () => {
-        this.websocketIndex = 0;
-        resolve(stompClient)
-      }, (error) => {
-        // reject(error)
-        if (this.websocketIndex < 3) {
-          this.websocketIndex += 1;
-          this.websocketConnect({});
-        } else {
-          console.log(error, 'error');
+      stompClient.connect(
+        headers,
+        () => {
+          this.websocketIndex = 0;
+          resolve(stompClient);
+        },
+        error => {
+          // reject(error)
+          if (this.websocketIndex < 3) {
+            this.websocketIndex += 1;
+            this.websocketConnect({});
+          } else {
+            console.log(error, 'error');
+          }
         }
-      });
-    })
+      );
+    });
   }
   get(url, params = {}) {
-    let options = { method: 'GET' }
+    let options = { method: 'GET' };
     let timestamp = new Date().getTime();
     params.timestamp = timestamp;
     let req_url = params ? this.buildUrl(url, params) : url;
-    return this.request(req_url, options)
+    return this.request(req_url, options);
   }
   RESTfulGet(url, params) {
-    let options = { method: 'GET' }
+    let options = { method: 'GET' };
     let req_url = params ? url + '/' + params : url;
-    return this.request(req_url, options)
+    return this.request(req_url, options);
   }
   post(url, data) {
-    let options = { method: 'POST', headers: { "content-type": "application/json;charset=UTF-8" } }
-    if (data) options.body = JSON.stringify(data)
-    return this.request(url, options)
+    let options = { method: 'POST', headers: { 'content-type': 'application/json;charset=UTF-8' } };
+    if (data) options.body = JSON.stringify(data);
+    return this.request(url, options);
   }
 
   delete(url, params) {
-    let options = { method: 'DELETE' }
+    let options = { method: 'DELETE' };
     let req_url = params ? this.buildUrl(url, params) : url;
-    return this.request(req_url, options)
+    return this.request(req_url, options);
   }
   deleteByObj(url, params) {
-    let options = { method: 'DELETE' }
+    let options = { method: 'DELETE' };
     let req_url = params ? url + '/' + params : url;
-    return this.request(req_url, options)
+    return this.request(req_url, options);
   }
   put(url, data) {
-    let options = { method: 'PUT' }
-    if (data) options.body = JSON.stringify(data)
-    return this.request(url, options)
+    let options = { method: 'PUT' };
+    if (data) options.body = JSON.stringify(data);
+    return this.request(url, options);
   }
 
   postForm(url, data, flag) {
-    let options = { method: 'POST' }
+    let options = { method: 'POST' };
     if (data) options.body = flag ? this.buildFormData(data) : new FormData(data);
-    return this.request(url, options)
+    return this.request(url, options);
   }
   head(url) {
-    let options = { method: 'Head' }
-    return this.request(url, options)
+    let options = { method: 'Head' };
+    return this.request(url, options);
   }
   buildUrl(url, params) {
-    const ps = []
+    const ps = [];
     if (params) {
       for (let p in params) {
         if (p) {
@@ -77,15 +80,15 @@ class Http {
         }
       }
     }
-    return url + '?' + ps.join('&')
+    return url + '?' + ps.join('&');
   }
 
   buildFormData(params) {
     if (params) {
-      const data = new FormData()
+      const data = new FormData();
       for (let p in params) {
         if (p) {
-          data.append(p, params[p])
+          data.append(p, params[p]);
         }
       }
       return data;
@@ -93,21 +96,21 @@ class Http {
   }
   request(url, options) {
     options.headers = options.headers || reqHeader;
-    options.credentials = 'same-origin'
+    options.credentials = 'same-origin';
     ProgressBar.show();
     return fetch(url, options)
       .then(authBeforeRes)
       .then(response => {
         ProgressBar.hide();
-        return response.json()
+        return response.json();
       })
       .catch(err => {
         notification.error({
           message: '请求发生未知错误',
           description: '请联系管理员或运维人员',
-          duration: 10
-        })
-        console.error("错误信息：", JSON.stringify(err));
+          duration: 10,
+        });
+        console.error('错误信息：', JSON.stringify(err));
         // this.handleExcept(e);//开发环境可讲此方法注视
       });
   }
@@ -130,4 +133,4 @@ class Http {
     }
   }
 }
-export default new Http()
+export default new Http();
